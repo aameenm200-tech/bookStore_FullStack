@@ -37,7 +37,7 @@ function Header() {
       <nav className='bg-black w-full text-white md:flex justify-center items-center p-3'>
         <div className='flex justify-between items-center text-2xl md:hidden '>
           <button onClick={() => setToggle(!toggle)}><FaBars className='text-3xl' /></button>
-          <Link to={'/login'} className='flex justify-center items-center ms-5 border rounded px-3 py-2 hover:bg-black hover:text-white '> <CiUser className='me-2' />Login</Link>
+          <Link to={'/login'} className='flex justify-center items-center ms-5 border rounded px-3 py-2 hover:bg-white hover:text-black '> <CiUser className='me-2' />Login</Link>
 
         </div>
         <ul className={toggle ? 'flex flex-col' : 'md:flex hidden gap-10'}>
