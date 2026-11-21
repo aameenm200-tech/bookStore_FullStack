@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Components/Header'
 import Footer from '../../components/Footer'
 import { FaEye } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { IoMdArrowBack } from 'react-icons/io'
+import { FaCameraRetro } from 'react-icons/fa'
 
 function View() {
+  const [modal,setModal] = useState(false)
   return (
     <>
       <Header />
@@ -20,7 +22,7 @@ function View() {
             <div className='col-span-3'>
               <div className='flex justify-between'>
                 <h3 className='text-2xl font-bold '>Title</h3>
-                <button><FaEye /></button>
+                <button onClick={()=>setModal(true)}><FaEye /></button>
               </div>
               <h2 className='text-xl font-bold text-blue-500 mt-2'>Author</h2>
               <div className='md:grid grid-cols-3 my-10 gap-10'>
@@ -43,24 +45,28 @@ function View() {
           </div>
         </div>
         {/* Modal */}
-        <div className='relative z-10 overflow-y-auto '>
+        { modal &&
+          <div onClick={()=>setModal(false)} className='relative z-10 overflow-y-auto '>
           <div className='bg-gray-500/75 fixed inset-0'>
             <div className='flex justify-center items-center min-h-screen'>
-              <div className='bg-white rounded w-100 md:w-250'>
+              <div className='bg-white rounded-2xl w-100 md:w-250'>
                 {/* modal title */}
-                <div className='bg-black text-white p-3 rounded '>
+                <div className='bg-black text-white p-3 rounded-xl '>
                   <h1>Book Images</h1>
                 </div>
                 {/* modal Body */}
-                <div>
-
+                <div className='relative p-5'>
+                  <p className='text-blue-500 flex items-center'> <FaCameraRetro className='text-2xl me-2' />Camera Clicks of the Books</p>
+                  <div className='flex flex-wrap my-5'>
+                    {/* duplicate image */}
+                    <img className='md:w-75 w-25 md:me-2 mb-3 md:mt-0' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8zYoVQIZZPOvu-q66hse9IuyzZxiqOOM7HW10zLtkJ5_RHVT9EPcvVA0D&s=10" alt="clicksofbook" />
+                  </div>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
+        }
       </div>
       <Footer />
     </>
