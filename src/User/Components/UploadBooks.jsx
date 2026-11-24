@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaPlus } from 'react-icons/fa'
 
 function UploadBooks() {
     return (
@@ -47,10 +48,24 @@ function UploadBooks() {
                     <div className='my-10 flex justify-center items-center'>
                         <label htmlFor="book-images">
                             <input type="file" id='book-images' hidden />
-                            <img style={{ height: '300px', borderRadius: '50%' }} src="https://www.pngall.com/wp-content/uploads/2/Upload-Transparent.png" alt="Upload Book" />
+                            <img style={{ height: '300px', width: '300px', borderRadius: '50%' }} src="https://www.pngall.com/wp-content/uploads/2/Upload-Transparent.png" alt="Upload Book" />
                         </label>
                     </div>
+                    {/* preview uploaded images */}
+                    <div className='flex justify-center items-center mb-3'>
+                        <img width={'70px'} height={'70px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8zYoVQIZZPOvu-q66hse9IuyzZxiqOOM7HW10zLtkJ5_RHVT9EPcvVA0D&s=10" alt="Bookscard" />
+                        <label htmlFor="bookupload">
+                            <input type="file" id='bookupload' hidden />
+                            <FaPlus className='text-2xl ms-3'/>
+                        </label>
+
+                    </div>
                 </div>
+            </div>
+            {/* reset & add books */}
+            <div className='flex md:justify-end mt-10 px-5 justify-center'>
+                <button className='bg-yellow-600 p-2 rounded font-bold text-white hover:bg-white hover:text-yellow-500 border'>Reset</button>
+                <button className='bg-green-600 p-2 rounded font-bold text-white ms-5 hover:text-green-500 hover:bg-white border'>Add Book Details </button>
             </div>
         </div>
     )
